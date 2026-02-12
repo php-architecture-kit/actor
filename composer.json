@@ -1,0 +1,35 @@
+{
+    "name": "php-architecture-kit/actor",
+    "description": "Actor abstraction for PHP applications - represents who performs actions in the system.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "email": "patryk.baszak@gmail.com",
+            "name": "Patryk Baszak",
+            "homepage": "https://patrykbaszak.com/"
+        }
+    ],
+    "keywords": [
+        "actor",
+        "identity",
+        "ddd",
+        "framework-agnostic"
+    ],
+    "homepage": "https://github.com/php-architecture-kit/actor",
+    "support": {
+        "issues": "https://github.com/php-architecture-kit/actor/issues",
+        "source": "https://github.com/php-architecture-kit/actor"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "php-architecture-kit/uuid": "^1.0 || @dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpArchitecture\\Actor\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
