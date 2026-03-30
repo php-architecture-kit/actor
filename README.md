@@ -6,7 +6,7 @@ Actor abstraction for PHP applications. Represents who performs actions in the s
 
 - **Actor interface** - Simple contract with `identifier()` method
 - **IdentifiedActor** - For actors with UUID-based identity (users, entities)
-- **SystemActor** - For system processes (cron, workers, schedulers)
+- **NamedActor** - For system processes (cron, workers, schedulers)
 - **UnknownActor** - For anonymous or unidentified actors
 - **ActorId** - UUID-based identity extending `php-architecture-kit/uuid`
 - **PHP 7.4+** - Compatible with legacy and modern PHP
@@ -21,7 +21,7 @@ composer require php-architecture-kit/actor
 
 ```php
 use PhpArchitecture\Actor\IdentifiedActor;
-use PhpArchitecture\Actor\SystemActor;
+use PhpArchitecture\Actor\NamedActor;
 use PhpArchitecture\Actor\UnknownActor;
 use PhpArchitecture\Actor\Identity\ActorId;
 
@@ -31,8 +31,8 @@ $userActor = new IdentifiedActor($userId);
 echo $userActor->identifier(); // 'df516cba-fb13-4f45-8335-00252f1b87e2'
 
 // System actor (cron job, worker, etc.)
-$systemActor = new SystemActor('order-processor');
-echo $systemActor->identifier(); // 'order-processor'
+$NamedActor = new NamedActor('order-processor');
+echo $NamedActor->identifier(); // 'order-processor'
 
 // Unknown actor (anonymous, unidentified)
 $unknownActor = new UnknownActor();
@@ -44,7 +44,7 @@ echo $unknownActor->identifier(); // 'unknown'
 | Actor | Use Case | Identifier |
 |-------|----------|------------|
 | `IdentifiedActor` | Users, entities with UUID | UUID string |
-| `SystemActor` | Cron jobs, workers, services | Custom name |
+| `NamedActor` | Cron jobs, workers, services | Custom name |
 | `UnknownActor` | Anonymous, unidentified | `'unknown'` |
 
 ## Creating Domain-Specific Actors
@@ -179,7 +179,7 @@ class OrderController
 | `__construct(ActorId $id)` | Create actor with UUID identity |
 | `identifier(): string` | Returns UUID string |
 
-### SystemActor
+### NamedActor
 
 | Method | Description |
 |--------|-------------|

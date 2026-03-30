@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace Tests\PhpArchitecture\Actor\Unit;
 
 use PhpArchitecture\Actor\Actor;
-use PhpArchitecture\Actor\SystemActor;
+use PhpArchitecture\Actor\NamedActor;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-class SystemActorTest extends TestCase
+class NamedActorTest extends TestCase
 {
     #[Test]
     public function implementsActorInterface(): void
     {
-        $actor = new SystemActor('scheduler');
+        $actor = new NamedActor('scheduler');
 
         $this->assertInstanceOf(Actor::class, $actor);
     }
@@ -22,7 +22,7 @@ class SystemActorTest extends TestCase
     #[Test]
     public function identifierReturnsName(): void
     {
-        $actor = new SystemActor('cron-job');
+        $actor = new NamedActor('cron-job');
 
         $this->assertSame('cron-job', $actor->identifier());
     }
@@ -30,8 +30,8 @@ class SystemActorTest extends TestCase
     #[Test]
     public function differentNamesProduceDifferentIdentifiers(): void
     {
-        $actor1 = new SystemActor('scheduler');
-        $actor2 = new SystemActor('worker');
+        $actor1 = new NamedActor('scheduler');
+        $actor2 = new NamedActor('worker');
 
         $this->assertNotSame($actor1->identifier(), $actor2->identifier());
     }
@@ -39,8 +39,8 @@ class SystemActorTest extends TestCase
     #[Test]
     public function sameNameProducesSameIdentifier(): void
     {
-        $actor1 = new SystemActor('cron');
-        $actor2 = new SystemActor('cron');
+        $actor1 = new NamedActor('cron');
+        $actor2 = new NamedActor('cron');
 
         $this->assertSame($actor1->identifier(), $actor2->identifier());
     }
@@ -48,9 +48,9 @@ class SystemActorTest extends TestCase
     #[Test]
     public function canBeExtended(): void
     {
-        $actor = new class('custom') extends SystemActor {};
+        $actor = new class('custom') extends NamedActor {};
 
-        $this->assertInstanceOf(SystemActor::class, $actor);
+        $this->assertInstanceOf(NamedActor::class, $actor);
         $this->assertSame('custom', $actor->identifier());
     }
 }

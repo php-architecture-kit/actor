@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpArchitecture\Actor;
 
-class SystemActor implements Actor
+class NamedActor implements Actor
 {
     protected string $name;
 

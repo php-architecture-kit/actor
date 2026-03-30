@@ -7,7 +7,7 @@ namespace Tests\PhpArchitecture\Actor\Unit;
 use PhpArchitecture\Actor\Actor;
 use PhpArchitecture\Actor\IdentifiedActor;
 use PhpArchitecture\Actor\Identity\ActorId;
-use PhpArchitecture\Actor\SystemActor;
+use PhpArchitecture\Actor\NamedActor;
 use PhpArchitecture\Actor\UnknownActor;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -23,9 +23,9 @@ class ActorTest extends TestCase
     }
 
     #[Test]
-    public function systemActorImplementsActor(): void
+    public function NamedActorImplementsActor(): void
     {
-        $actor = new SystemActor('cron');
+        $actor = new NamedActor('cron');
 
         $this->assertInstanceOf(Actor::class, $actor);
     }
