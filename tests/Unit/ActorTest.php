@@ -11,13 +11,14 @@ use PhpArchitecture\Actor\NamedActor;
 use PhpArchitecture\Actor\UnknownActor;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class ActorTest extends TestCase
 {
     #[Test]
     public function actorIsInterface(): void
     {
-        $reflection = new \ReflectionClass(Actor::class);
+        $reflection = new ReflectionClass(Actor::class);
 
         $this->assertTrue($reflection->isInterface());
     }
