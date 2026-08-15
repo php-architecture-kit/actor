@@ -23,7 +23,7 @@
     },
     "require": {
         "php": "^7.4 || ^8.0",
-        "php-architecture-kit/uuid": "^1.0 || @dev"
+        "php-architecture-kit/uuid": "^2.0 || @dev"
     },
     "autoload": {
         "psr-4": {
