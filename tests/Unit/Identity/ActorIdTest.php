@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\PhpArchitecture\Actor\Unit\Identity;
 
 use PhpArchitecture\Actor\Identity\ActorId;
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 

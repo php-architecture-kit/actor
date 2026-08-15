@@ -54,7 +54,7 @@ Extend base actors for your domain:
 ```php
 use PhpArchitecture\Actor\IdentifiedActor;
 use PhpArchitecture\Actor\Identity\ActorId;
-use PhpArchitecture\Uuid\Uuid;
+use PhpArchitecture\Uuid\Foundation\Uuid;
 
 // Domain-specific actor ID
 final class UserId extends ActorId
