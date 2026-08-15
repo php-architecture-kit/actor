@@ -30,6 +30,9 @@
             "PhpArchitecture\\Actor\\": "src/"
         }
     },
+    "conflict": {
+        "php-architecture-kit/uuid": ">=2.0"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true
 }
