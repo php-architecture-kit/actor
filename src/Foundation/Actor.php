@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpArchitecture\Actor;
+namespace PhpArchitecture\Actor\Foundation;
 
 interface Actor
 {
